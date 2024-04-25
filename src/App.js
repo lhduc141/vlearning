@@ -1,8 +1,8 @@
 import "./App.css";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import AuthTemplate from "./redux/templates/AuthTemplate";
-import loginPage from "./pages/loginPage/loginPage";
-
+import LoginPage from "./pages/loginPage/LoginPage";
+import SignupPage from "./pages/signupPage/SignupPage";
 function App() {
   return (
     <BrowserRouter>
@@ -12,7 +12,8 @@ function App() {
         
         {/* auth template */}
         <Route path="/auth" element={<AuthTemplate />}>
-          <Route path="login" element={<loginPage />} />
+          <Route path="login" element={<LoginPage />} />
+          <Route path="signup" element={<SignupPage />} />
         </Route>
       </Routes>
     </BrowserRouter>
