@@ -1,10 +1,14 @@
 /** @type {import('tailwindcss').Config} */
+
+import daisyui from "daisyui";
+
 module.exports = {
   content: ["./src/**/*.{js,jsx,ts,tsx}"],
   theme: {
     extend: {},
+    colors: {},
   },
-  plugins: [require("daisyui")],
+  plugins: [daisyui],
 };
 
 // B1 : npm install -D tailwindcss

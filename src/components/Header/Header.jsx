@@ -1,73 +1,9 @@
 import React from "react";
 import { NavLink } from "react-router-dom";
-import { Input, Dropdown, Space } from "antd";
+import { Input } from "antd";
 import { SearchOutlined } from "@ant-design/icons";
 
 const Header = () => {
-  const items = [
-    {
-      key: "1",
-      label: (
-        <a
-          target="_blank"
-          rel="noopener noreferrer"
-          href="https://www.antgroup.com"
-        >
-          1st menu item
-        </a>
-      ),
-    },
-    {
-      key: "2",
-      label: (
-        <a
-          target="_blank"
-          rel="noopener noreferrer"
-          href="https://www.aliyun.com"
-        >
-          2nd menu item (disabled)
-        </a>
-      ),
-      // icon: <SmileOutlined />,
-      disabled: true,
-    },
-    {
-      key: "3",
-      label: (
-        <a
-          target="_blank"
-          rel="noopener noreferrer"
-          href="https://www.luohanacademy.com"
-        >
-          3rd menu item (disabled)
-        </a>
-      ),
-      disabled: true,
-    },
-    {
-      key: "4",
-      danger: true,
-      label: "a danger item",
-    },
-  ];
-  const DropDown = () => (
-    <Dropdown
-      menu={{
-        items,
-      }}
-    >
-      <NavLink
-        onClick={(e) => e.preventDefault()}
-        className="mr-4 hover:text-green-500"
-      >
-        <Space>
-          <i class="fa fa-bars"></i>
-          DANH MỤC
-          {/* <DownOutlined /> */}
-        </Space>
-      </NavLink>
-    </Dropdown>
-  );
   const Search = () => (
     <div>
       <Input
@@ -85,42 +21,74 @@ const Header = () => {
             <img src="/logo.png" className="h-16 pr-4" alt="" />
           </NavLink>
           <Search />
+          <div class="form-control">
+            <input
+              type="text"
+              placeholder="Search"
+              suffix={<SearchOutlined />}
+              class="input input-bordered w-24 md:w-auto"
+            />
+          </div>
         </div>
 
         <div className="font-medium text-[1rem] text-black">
-          <div class="dropdown dropdown-hover mx-4">
-            <div tabindex="0" class="m-1 bg-none hover:text-green-500">
+          <div class="dropdown dropdown-hover  mx-4 cursor-pointer">
+            <div tabindex="0" class="m-1 hover:text-[var(--colorGlobal)]">
               <i class="fa fa-bars mr-2"></i>
               DANH MỤC
             </div>
             <ul
               tabindex="0"
-              class="dropdown-content z-[1] menu p-2 shadow bg-base-100 rounded-box w-52"
+              class="dropdown-content z-[1] menu p-2 shadow bg-white border-spacing-2 rounded-md w-52 text-black"
             >
-              <li>
-                <NavLink>Item 1</NavLink>
+              <li className="py-2 bg-none">
+                <NavLink className="btn btn-ghost glass text-black hover:bg-accent hover:text-white">
+                  LẬP TRÌNH BACKEND
+                </NavLink>
               </li>
               <li>
-                <NavLink>Item 2</NavLink>
+                <NavLink className="btn btn-ghost glass text-black hover:bg-accent hover:text-white ">
+                  THIẾT KẾ WEB
+                </NavLink>
+              </li>
+              <li className="py-2 bg-none">
+                <NavLink className="btn btn-ghost glass text-black hover:bg-accent hover:text-white ">
+                  LẬP TRÌNH DI ĐỘNG
+                </NavLink>
+              </li>
+              <li>
+                <NavLink className="btn btn-ghost glass text-black hover:bg-accent hover:text-white">
+                  LẬP TRÌNH FRONT END
+                </NavLink>
+              </li>
+              <li className="py-2 bg-none">
+                <NavLink className="btn btn-ghost glass text-black hover:bg-accent hover:text-white ">
+                  LẬP TRÌNH FULL STACK
+                </NavLink>
+              </li>
+              <li>
+                <NavLink className="btn btn-ghost glass text-black hover:bg-accent hover:text-white ">
+                  TƯ DUY LẬP TRÌNH
+                </NavLink>
               </li>
             </ul>
           </div>
-          <NavLink to={""} className={"mr-4 hover:text-green-500"}>
+          <NavLink to={""} className={"mr-4 hover:text-accent"}>
             KHÓA HỌC
           </NavLink>
-          <NavLink to={""} className={"mr-4 hover:text-green-500"}>
+          <NavLink to={""} className={"mr-4 hover:text-accent"}>
             BLOG
           </NavLink>
-          <NavLink to={""} className={"mr-4 hover:text-green-500"}>
+          <NavLink to={""} className={"mr-4 hover:text-accent"}>
             SỰ KIỆN
           </NavLink>
-          <NavLink to={""} className={"mr-4 hover:text-green-500"}>
+          <NavLink to={""} className={"mr-4 hover:text-accent"}>
             THÔNG TIN
           </NavLink>
         </div>
 
         <div>
-          <button class="btn btn-outline btn-accent">Login</button>
+          <button class="btn btn-outline btn-accent ">Login</button>
         </div>
       </div>
     </section>
