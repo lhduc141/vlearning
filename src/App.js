@@ -1,6 +1,6 @@
 import "./App.css";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
-import AuthTemplate from "./redux/templates/AuthTemplate";
+import AuthTemplate from "./templates/AuthTemplate";
 import LoginPage from "./pages/loginPage/loginPage";
 import SignupPage from "./pages/signupPage/SignupPage";
 import HomePage from "./pages/HomePage/HomePage";
