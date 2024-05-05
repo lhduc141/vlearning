@@ -63,3 +63,7 @@
   text-align: center;
   transition: all 0.5s;
 }
+
+.input {
+  background-color: white;
+}
