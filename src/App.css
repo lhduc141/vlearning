@@ -36,3 +36,34 @@
     transform: rotate(360deg);
   }
 }
+
+:root {
+  --colorGlobal: #41b294;
+  --colorFPrimary: #4caf50;
+  --colorSPrimary: #f6ba35;
+  --colorTPrimary: #ed85ab;
+  --colorPLight: #80e27e;
+  --colorPDark: #087f23;
+  --colorWhite: #ffffff;
+  --colorText: #252525;
+  --colorTextCard: #8c8c8c;
+  --colorbg: #f0f8ff;
+  --colorbgCourseDetail: #dcdcdc24;
+}
+
+.iconFooter {
+  display: inline-block;
+  margin: 0px 10px;
+  width: 40px;
+  height: 40px;
+  color: #ffffff;
+  background: var(--colorGlobal);
+  border-radius: 50%;
+  line-height: 40px;
+  text-align: center;
+  transition: all 0.5s;
+}
+
+.input {
+  background-color: white;
+}
