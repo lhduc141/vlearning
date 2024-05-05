@@ -1,5 +1,5 @@
 import React from "react";
-import { NavLink } from "react-router-dom";
+import { NavLink, Link } from "react-router-dom";
 import { Input } from "antd";
 import { SearchOutlined } from "@ant-design/icons";
 
@@ -93,9 +93,14 @@ const Header = () => {
             THÔNG TIN
           </NavLink>
         </div>
-
+        <NavLink
+            className="font-semibold text-yellow-400 text-lg no-underline"
+            to="/login"
+          >
+            Log in
+          </NavLink>
         <div>
-          <button class="btn btn-outline btn-accent ">Login</button>
+          
         </div>
       </div>
     </section>
