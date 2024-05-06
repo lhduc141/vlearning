@@ -94,8 +94,8 @@ const Header = () => {
           </NavLink>
         </div>
         <NavLink
-            className="font-semibold text-yellow-400 text-lg no-underline"
-            to="/login"
+            className="  font-semibold text-yellow-400 text-lg no-underline"
+            to="/auth/login"
           >
             Log in
           </NavLink>
