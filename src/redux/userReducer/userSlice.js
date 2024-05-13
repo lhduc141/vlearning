@@ -1,15 +1,37 @@
-import { createSlice } from '@reduxjs/toolkit'
+import { createSlice } from "@reduxjs/toolkit";
+import { userLocal } from "../../service/userLocal";
+import { loginThunk } from "./userThunk";
 
 const initialState = {
-  infoUser:{}
-}
+  infoUser: userLocal.get(),
+};
 
 const userSlice = createSlice({
-  name: 'userSlice',
+  name: "userSlice",
   initialState,
-  reducers: {}
+  reducers: {
+    logOutAction: (state, action) => {
+      state.infoUser = null;
+      localStorage.removeItem("token");
+      userLocal.delete();
+      window.location.href = "/";
+    },
+  },
+
+  extraReducers: (builder) => {
+    builder
+      .addCase(loginThunk.fulfilled, (state, action) => {
+        state.infoUser = action.payload;
+      })
+      .addCase(loginThunk.pending, (state, action) => {
+        state.infoUser = action.payload;
+      })
+      .addCase(loginThunk.rejected, (state, action) => {
+        state.infoUser = action.payload;
+      });
+  },
 });
 
-export const {} = userSlice.actions
+export const { setInfoUser } = userSlice.actions;
 
-export default userSlice.reducer
+export default userSlice.reducer;

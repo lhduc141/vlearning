@@ -13,5 +13,8 @@ export const userService = {
   updateUser: (data) =>
     http.put(`/api/QuanLyNguoiDung/CapNhatThongTinNguoiDung`, data),
 
-  getAccountInfo: () => http.post(`/api/QuanLyNguoiDung/ThongTinTaiKhoan`),
+  getAccountInfo: () => {
+    let url = `/api/QuanLyNguoiDung/ThongTinNguoiDung`;
+    return http.post(url);
+  },
 };

@@ -1,7 +1,29 @@
+// File HomePage.js
 import React from "react";
+import Carousel from "./Carousel/Carousel";
+import HomeIntro from "./Carousel/HomeIntro";
+import Banner from "./Banner";
+import TopTech from "./TopTech";
+
+import "swiper/css";
+import "swiper/css/navigation";
+import "swiper/css/pagination";
+import FeedBack from "./FeedBack";
+import ListCourse from "./ListCourses/ListCourse";
 
 const HomePage = () => {
-  return <div className="bg-white"></div>;
+  return (
+    <div className="bg-white">
+      <Carousel />
+      <HomeIntro />
+
+      <ListCourse />
+
+      <Banner />
+      <TopTech />
+      <FeedBack />
+    </div>
+  );
 };
 
 export default HomePage;
