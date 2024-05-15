@@ -79,7 +79,10 @@ const TopTech = () => {
         // responsive
       >
         {dataTemo.map((item, index) => (
-          <SwiperSlide className="flex flex-col items-center justify-center">
+          <SwiperSlide
+            key={index}
+            className="flex flex-col items-center justify-center"
+          >
             <img
               src={item.avt}
               alt=""

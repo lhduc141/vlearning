@@ -5,7 +5,6 @@ import { useSelector } from "react-redux";
 
 const Header = () => {
   const user = useSelector((state) => state.userReducer.infoUser);
-  console.log(user);
   return (
     <section className="header bg-white py-3 z-20 sticky top-0 shadow-lg backdrop-blur-lg">
       <div className="container mx-auto justify-center xl:justify-between items-center flex gap-2">
@@ -60,18 +59,26 @@ const Header = () => {
           ))}
         </div>
         {user ? (
-          <NavLink
-            className="font-semibold text-yellow-400 text-lg no-underline"
-            to="/auth/login"
-          >
-            {user?.hoTen}
-          </NavLink>
+          <div>
+            <NavLink
+              className="font-semibold text-yellow-400 text-lg no-underline"
+              to="/auth/login"
+            >
+              {user?.hoTen}
+            </NavLink>
+            <NavLink
+              className="font-semibold text-yellow-400 text-lg no-underline"
+              to="/auth/login"
+            >
+              Log Out
+            </NavLink>
+          </div>
         ) : (
           <NavLink
             className="font-semibold text-yellow-400 text-lg no-underline"
             to="/auth/login"
           >
-            Log in
+            Login
           </NavLink>
         )}
       </div>

@@ -3,10 +3,10 @@ import { useFormik } from "formik";
 import { Link, useNavigate } from "react-router-dom";
 import * as yup from "yup";
 import { useDispatch } from "react-redux";
-import { loginThunk } from "../../redux/userReducer/userThunk";
 import { userService } from "../../service/userService";
 import { message } from "antd";
 import { setInfoUser } from "../../redux/userReducer/userSlice";
+import { loginThunk } from "../../redux/userReducer/userThunk";
 
 const LoginPage = () => {
   const dispatch = useDispatch();
@@ -20,9 +20,7 @@ const LoginPage = () => {
     onSubmit: async (values) => {
       const { data } = await userService.postLogin(values);
 
-      message.success(data?.message);
-      dispatch(setInfoUser(data.content));
-      localStorage.setItem("token", data.content.accessToken);
+      dispatch(loginThunk(data));
       navigate("/");
     },
     validationSchema: yup.object().shape({
