@@ -37,23 +37,23 @@ const arrMaNhom = [
 const CoursesCreateUpdate = () => {
   const { pathname, state } = useLocation();
   const navigate = useNavigate();
-  const [imageSelected, setImageSelected] = useState(null);
+  const [imageSelected, setImageSelected] = useState("https://elearningnew.cybersoft.edu.vn/hinhanh/back-end_gp01.jpeg");
   const [LayDanhMucKhoaHoc, setLayDanhMucKhoaHoc] = useState([]);
 
   const isCreatePage = pathname.includes("create");
   const user = useSelector((state) => state.userReducer.infoUser);
   const [courseData, setCourseData] = useState({
     maKhoaHoc: "",
-    biDanh: "",
+    biDanh: "manh",
     tenKhoaHoc: "",
     moTa: "",
-    luotXem: 0,
-    danhGia: 0,
+    luotXem: 1000000,
+    danhGia: 10000000,
     hinhAnh: "",
-    maNhom: "",
-    ngayTao: "",
+    maNhom: arrMaNhom[0],
+    ngayTao: new Date(),
     maDanhMucKhoaHoc: "",
-    taiKhoanNguoiTao: "",
+    taiKhoanNguoiTao: user?.taiKhoan,
   });
 
   useEffect(() => {
@@ -97,7 +97,7 @@ const CoursesCreateUpdate = () => {
     e.preventDefault();
     try {
       if (isCreatePage) {
-        await toast.promise(courseService.createCourse(courseData), {
+        await toast.promise(courseService.createCourse({...courseData, hinhAnh: "https://elearningnew.cybersoft.edu.vn/hinhanh/back-end_gp01.jpeg"}), {
           loading: "Đang tạo...",
           success: "Tạo thành công",
           error: (e) => e?.response?.data,
