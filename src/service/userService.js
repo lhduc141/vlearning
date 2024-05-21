@@ -13,5 +13,20 @@ export const userService = {
   updateUser: (data) =>
     http.put(`/api/QuanLyNguoiDung/CapNhatThongTinNguoiDung`, data),
 
-  getAccountInfo: () => http.post(`/api/QuanLyNguoiDung/ThongTinTaiKhoan`),
+  getAccountInfo: () => {
+    let url = `/api/QuanLyNguoiDung/ThongTinNguoiDung`;
+    return http.post(url);
+  },
+
+  createUser: (data) => http.post(`/api/QuanLyNguoiDung/ThemNguoiDung`, data),
+
+  getUserType: () => http.get("/api/QuanLyNguoiDung/LayDanhSachLoaiNguoiDung"),
+
+  getUsers: () => http.get("/api/QuanLyNguoiDung/LayDanhSachNguoiDung"),
+
+  editUser: (user) =>
+    http.put("/api/QuanLyNguoiDung/CapNhatThongTinNguoiDung", user),
+
+  deleteUser: (taiKhoan) =>
+    http.delete(`/api/QuanLyNguoiDung/XoaNguoiDung?TaiKhoan=${taiKhoan}`),
 };

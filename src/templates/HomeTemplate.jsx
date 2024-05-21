@@ -2,13 +2,16 @@ import React, { useEffect } from "react";
 import Header from "../components/Header/Header";
 import { Outlet } from "react-router-dom";
 import Footer from "../components/Footer/Footer";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { userService } from "../service/userService";
-import { setInfoUser } from "../redux/userReducer/userSlice";
+import userSlice, { setInfoUser } from "../redux/userReducer/userSlice";
 
 const HomeTemplate = () => {
   const token = localStorage.getItem("token");
   const dispatch = useDispatch();
+
+  // const inforUser = useSelector((state) => state.userSlice.inforUser);
+
   useEffect(() => {
     const checkUser = async () => {
       try {
