@@ -120,6 +120,7 @@ const ListCourse = () => {
     <div className="py-10 container">
       <div className="mx-10">
         <div
+        id="khoahocphobien"
           style={{
             color: "var(--colorSPrimary)",
             fontWeight: 600,

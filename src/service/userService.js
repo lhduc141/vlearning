@@ -17,4 +17,16 @@ export const userService = {
     let url = `/api/QuanLyNguoiDung/ThongTinNguoiDung`;
     return http.post(url);
   },
+
+  createUser: (data) => http.post(`/api/QuanLyNguoiDung/ThemNguoiDung`, data),
+
+  getUserType: () => http.get("/api/QuanLyNguoiDung/LayDanhSachLoaiNguoiDung"),
+
+  getUsers: () => http.get("/api/QuanLyNguoiDung/LayDanhSachNguoiDung"),
+
+  editUser: (user) =>
+    http.put("/api/QuanLyNguoiDung/CapNhatThongTinNguoiDung", user),
+
+  deleteUser: (taiKhoan) =>
+    http.delete(`/api/QuanLyNguoiDung/XoaNguoiDung?TaiKhoan=${taiKhoan}`),
 };
