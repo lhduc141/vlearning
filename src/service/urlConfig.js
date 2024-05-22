@@ -6,6 +6,7 @@ export const TOKEN_CYBER =
 export const MA_NHOM = "GP01";
 
 const token = localStorage.getItem("token");
+console.log("token:", token);
 
 export const http = axios.create({
   baseURL: BASE_URL,
