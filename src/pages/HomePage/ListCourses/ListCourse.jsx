@@ -13,10 +13,12 @@ const ListCourse = () => {
 
   useEffect(() => {
     dispatch(getCourseThunk());
-    SetDataList(listCourse);
-  }, []);
+  }, [dispatch]);
 
-  const selectedIndices = [1, 4, 20, 30, 40, 50, 60, 70];
+  // Update dataList when listCourse changes
+  useEffect(() => {
+    SetDataList(listCourse);
+  }, [listCourse]);
 
   return (
     <div className="py-10 container">

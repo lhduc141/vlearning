@@ -6,7 +6,7 @@ export const getCourseThunk = createAsyncThunk(
   "course/movieThunk",
   async (payload, { rejectWithValue }) => {
     try {
-      const data = await courseService.getDetailCourse(payload);
+      const data = await courseService.getCourses();
       console.log("data:", data.data);
       message.success("getlist success");
       return data.data;

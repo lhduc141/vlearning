@@ -2,24 +2,24 @@ import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 
 const ShowListCourse = ({ dataList, cate }) => {
-  console.log("ShowListCourse ~ dataList:", dataList);
-  console.log("ShowListCourse ~ dataList:", dataList[0]);
   const [filteredDataList, setFilteredDataList] = useState([]);
   const selectedIndices = [1, 4, 20, 30, 40, 50, 60, 70];
   const navigate = useNavigate();
+
   useEffect(() => {
-    let filteredList = dataList[0];
+    let filteredList;
     if (cate === "all") {
-      filteredList = filteredList?.filter((_, index) =>
+      filteredList = dataList?.filter((_, index) =>
         selectedIndices.includes(index + 1)
       );
     } else {
-      filteredList = filteredList
+      filteredList = dataList
         .filter((item) => item.danhMucKhoaHoc?.maDanhMucKhoahoc === cate)
         .slice(0, 8);
     }
     setFilteredDataList(filteredList);
-  }, [cate, dataList[0]]);
+  }, [cate, dataList]); // Include dataList in the dependency array
+
   if (filteredDataList?.length === 0) return <div>No courses available</div>;
   else
     return (
