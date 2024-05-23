@@ -1,7 +1,6 @@
 import { createAsyncThunk } from "@reduxjs/toolkit";
 import { courseService } from "../../service/courseService";
 import { message } from "antd";
-import { useNavigate } from "react-router-dom";
 
 export const getCourseThunk = createAsyncThunk(
   "course/movieThunk",
@@ -43,5 +42,16 @@ export const buyCourse = createAsyncThunk(
       message.error("Bạn đã mua khóa học này rồi");
       return "fail";
     }
+  }
+);
+export const getCoursePage = createAsyncThunk(
+  "course/get-course-page",
+  async (payload) => {
+    console.log("payload:", payload);
+    try {
+      const coursePage = courseService.getCoursePage(payload);
+      console.log("coursePage:", coursePage);
+      return coursePage;
+    } catch (error) {}
   }
 );

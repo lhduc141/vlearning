@@ -36,4 +36,20 @@ export const courseLocal = {
 
     localStorage.setItem("courseDetail", JSON.stringify(courseDetail));
   },
+
+  setCoursePageList: () => {
+    localStorage.setItem("coursePageList", JSON.stringify([]));
+  },
+
+  setCoursePageList: () => {
+    localStorage.setItem("coursePageList", JSON.stringify([]));
+  },
+  addCoursePageList: (data) => {
+    let coursePageList = localStorage.getItem("coursePageList");
+    let coursePage = coursePageList ? JSON.parse(coursePageList) : [];
+
+    coursePage.push(data);
+
+    localStorage.setItem("courseDetail", JSON.stringify(coursePage));
+  },
 };

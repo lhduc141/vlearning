@@ -27,11 +27,11 @@ const ShowListCourse = ({ dataList, cate }) => {
         <div className="">
           <div className="grid grid-cols-2">
             {filteredDataList?.map((item) => (
-              <div key={item.maKhoaHoc} className="">
+              <div key={item?.maKhoaHoc} className="">
                 <div className="card card-side bg-none shadow-xl mr-12 mb-12 h-[250px]">
                   <figure className="w-[40%] m-2">
                     <img
-                      src={`${item.hinhAnh}`}
+                      src={`${item?.hinhAnh}`}
                       alt="Movie"
                       style={{
                         width: "100%",
@@ -49,11 +49,11 @@ const ShowListCourse = ({ dataList, cate }) => {
                         fontSize: "1.5rem",
                       }}
                     >
-                      {item.tenKhoaHoc}
+                      {item?.tenKhoaHoc}
                     </h2>
                     <p>
-                      {item.moTa
-                        ? `${item.moTa.substring(0, 75)}...`
+                      {item?.moTa
+                        ? `${item?.moTa.substring(0, 75)}...`
                         : "No description available"}
                     </p>
                     <div className="flex justify-between">
@@ -92,7 +92,7 @@ const ShowListCourse = ({ dataList, cate }) => {
                             color: "green",
                           }}
                         >
-                          View: {item.luotXem}
+                          View: {item?.luotXem}
                         </div>
                       </div>
                       <div className="card-actions justify-end">
@@ -109,7 +109,7 @@ const ShowListCourse = ({ dataList, cate }) => {
                         </div>
                         <button
                           onClick={() => {
-                            navigate(`/detail/${item.maKhoaHoc}`);
+                            navigate(`/detail/${item?.maKhoaHoc}`);
                           }}
                           className="border text-[var(--colorSPrimary)] border-[var(--colorSPrimary)] px-4 py-2 rounded-lg hover:bg-[var(--colorSPrimary)] hover:text-white"
                         >

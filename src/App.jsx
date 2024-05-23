@@ -22,6 +22,7 @@ import "@fontsource/roboto/700.css";
 import DetailPage from "./pages/DetailPage/DetailPage";
 import BuySuccess from "./pages/DetailPage/BuySuccess";
 import KhoaHoc from "./pages/KhoaHoc/KhoaHoc";
+import Blog from "./pages/HomePage/Blog/Blog";
 
 function App() {
   return (
@@ -33,6 +34,7 @@ function App() {
           <Route path="/detail/:maKhoaHoc" element={<DetailPage />} />
           <Route path="/buy-success/:maKhoaHoc" element={<BuySuccess />} />
           <Route path="/khoa-hoc" element={<KhoaHoc />} />
+          <Route path="/blog" element={<Blog />} />
         </Route>
 
         <Route path="/auth" element={<AuthTemplate />}>

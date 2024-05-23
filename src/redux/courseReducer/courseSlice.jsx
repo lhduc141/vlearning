@@ -1,11 +1,17 @@
 import { createSlice } from "@reduxjs/toolkit";
-import { buyCourse, getCourseThunk, getDetailCourse } from "./courseThunk";
+import {
+  buyCourse,
+  getCoursePage,
+  getCourseThunk,
+  getDetailCourse,
+} from "./courseThunk";
 import { courseLocal } from "../../service/courseLocal";
 import { message } from "antd";
 
 const initialState = {
   listCourse: courseLocal.getCourseList(),
   detailCourse: [],
+  coursePageList: [],
 };
 
 const courseSlice = createSlice({
@@ -29,11 +35,16 @@ const courseSlice = createSlice({
       })
       .addCase(buyCourse.fulfilled, (state, action) => {
         state.loading = false;
-        message.success("check buy success");
       })
       .addCase(buyCourse.rejected, (state, action) => {
         state.loading = false;
         message.error("Bạn đã mua khóa học này rồi");
+      })
+      .addCase(getCoursePage.fulfilled, (state, action) => {
+        state.loading = false;
+        courseLocal.setCoursePageList(action.payload.data);
+        courseLocal.addCourse(action.payload.data);
+        state.coursePageList = action.payload.data;
       });
   },
 });

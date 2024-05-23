@@ -27,4 +27,9 @@ export const courseService = {
     let url = "/api/QuanLyKhoaHoc/DangKyKhoaHoc";
     return http.post(url, data);
   },
+  getCoursePage: (data) => {
+    let url = `/api/QuanLyKhoaHoc/LayDanhSachKhoaHoc_PhanTrang?page=${data}&pageSize=8&MaNhom=${MA_NHOM}`;
+    console.log("url:", url);
+    return http.get(url, data);
+  },
 };

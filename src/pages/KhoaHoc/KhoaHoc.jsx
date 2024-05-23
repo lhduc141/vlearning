@@ -1,26 +1,32 @@
-import React, { useEffect, useState } from "react";
-import { useDispatch } from "react-redux";
+import React, { useEffect, useRef, useState } from "react";
 import ShowCoursePage from "./ShowCoursePage";
 
 const KhoaHoc = () => {
   const [page, setPage] = useState(1);
-  const dispatch = useDispatch();
+  const topRef = useRef(null);
+
   useEffect(() => {
-    // dispatch();
-  });
+    if (topRef.current) {
+      topRef.current.scrollIntoView({ behavior: "smooth" });
+    }
+  }, [page]);
+
   return (
     <div className="mb-24">
-      <div className="bg-[var(--colorSPrimary)] w-full h-fit text-white">
+      <div
+        className="bg-[var(--colorSPrimary)] w-full h-fit text-white"
+        ref={topRef}
+      >
         <div className="p-12">
           <div className="text-[2rem]">KHOÁ HỌC</div>
           <div className="">TIẾN LÊN VÀ KHÔNG CHẦN CHỪ !!!</div>
         </div>
       </div>
 
-      <div className="flex justify-center">
-        <div>
+      <div className="flex justify-center mt-16 mx-8">
+        <div className="space-y-8">
           <ShowCoursePage page={page} />
-          <div className="join">
+          <div className="join flex justify-center">
             <input
               className="join-item btn btn-square"
               type="radio"
