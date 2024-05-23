@@ -19,6 +19,8 @@ import "@fontsource/roboto/300.css";
 import "@fontsource/roboto/400.css";
 import "@fontsource/roboto/500.css";
 import "@fontsource/roboto/700.css";
+import DetailPage from "./pages/DetailPage/DetailPage";
+import BuySuccess from "./pages/DetailPage/BuySuccess";
 
 function App() {
   return (
@@ -27,6 +29,8 @@ function App() {
       <Routes>
         <Route path="/" element={<HomeTemplate />}>
           <Route index element={<HomePage />} />
+          <Route path="/detail/:maKhoaHoc" element={<DetailPage />} />
+          <Route path="/buy-success/:maKhoaHoc" element={<BuySuccess />} />
         </Route>
 
         <Route path="/auth" element={<AuthTemplate />}>

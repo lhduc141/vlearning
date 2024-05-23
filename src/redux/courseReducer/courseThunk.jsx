@@ -1,14 +1,45 @@
 import { createAsyncThunk } from "@reduxjs/toolkit";
 import { courseService } from "../../service/courseService";
+import { message } from "antd";
 
 export const getCourseThunk = createAsyncThunk(
-  "movieReducer/movieThunk",
+  "course/movieThunk",
   async (payload, { rejectWithValue }) => {
     try {
-      const data = await courseService.getListCourse();
-      return data.data.content;
+      const data = await courseService.getDetailCourse(payload);
+      console.log("data:", data.data);
+      message.success("getlist success");
+      return data.data;
     } catch (err) {
       return rejectWithValue(err);
+    }
+  }
+);
+export const getDetailCourse = createAsyncThunk(
+  "course/detailCourse",
+  async (payload) => {
+    console.log("payload:", payload);
+    try {
+      const data = await courseService.getDetailCourse(payload);
+      message.success("get detail success");
+      return data;
+    } catch (error) {
+      console.log("error:", error);
+      message.error("load fail");
+    }
+  }
+);
+export const buyCourse = createAsyncThunk(
+  "course/buyCourse",
+  async (payload) => {
+    console.log("payload:", payload);
+    try {
+      const data = await courseService.buyCourse(payload);
+      message.success("buy success");
+      return data;
+    } catch (error) {
+      console.log("error:", error);
+      message.error("buy fail");
     }
   }
 );

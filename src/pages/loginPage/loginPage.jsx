@@ -4,8 +4,6 @@ import { Link, useNavigate } from "react-router-dom";
 import * as yup from "yup";
 import { useDispatch } from "react-redux";
 import { userService } from "../../service/userService";
-import { message } from "antd";
-import { setInfoUser } from "../../redux/userReducer/userSlice";
 import { loginThunk } from "../../redux/userReducer/userThunk";
 
 const LoginPage = () => {

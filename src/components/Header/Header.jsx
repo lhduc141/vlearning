@@ -5,15 +5,15 @@ import { useSelector } from "react-redux";
 
 const Header = () => {
   const user = useSelector((state) => state.userReducer.infoUser);
-  const [isClicked, setIsClicked] = useState(false)
- 
-const  handleScroll = (event) => {
+  const [isClicked, setIsClicked] = useState(false);
+
+  const handleScroll = (event) => {
     event.preventDefault();
-    const item = document.getElementById('khoahocphobien');
+    const item = document.getElementById("khoahocphobien");
     if (item) {
       item.scrollIntoView({ behavior: "smooth" });
     }
-  }
+  };
   return (
     <section className="header bg-white py-3 z-20 sticky top-0 shadow-lg backdrop-blur-lg">
       <div className="container mx-auto justify-center xl:justify-between items-center flex gap-2">
@@ -22,7 +22,7 @@ const  handleScroll = (event) => {
         </NavLink>
         <div className="flex items-center">
           <label className="input input-bordered flex items-center gap-2 cursor-pointer">
-            <input type="text" className="grow w-full" placeholder="Search" />
+            <input type="text" className="grow w-full" placeholder="Tìm kiếm" />
             <SearchOutlined className="w-4 h-4 opacity-70 hover:text-black" />
           </label>
         </div>
@@ -32,7 +32,11 @@ const  handleScroll = (event) => {
               <i className="fa fa-bars mr-3"></i>
               DANH MỤC
             </div>
-            <ul className={`dropdown-content z-[1] menu p-2 shadow bg-white border-spacing-2 rounded-md text-black ${isClicked && "hidden"}`}>
+            <ul
+              className={`dropdown-content z-[1] menu p-2 shadow bg-white border-spacing-2 rounded-md text-black ${
+                isClicked && "hidden"
+              }`}
+            >
               {[
                 { title: "LẬP TRÌNH BACKEND", link: "#" },
                 { title: "THIẾT KẾ WEB", link: "#" },
@@ -43,7 +47,7 @@ const  handleScroll = (event) => {
               ].map((item, index) => (
                 <li key={index} className="py-1 bg-none">
                   <NavLink
-                  onClick={handleScroll}
+                    onClick={handleScroll}
                     // to={item.link}
                     className="textarea-xs btn  btn-ghost glass text-black hover:bg-accent hover:text-white"
                   >
@@ -54,8 +58,8 @@ const  handleScroll = (event) => {
             </ul>
           </div>
           {[
-            { title: "KHÓA HỌC", link: "#" },
-            { title: "BLOG", link: "#" },
+            { title: "KHÓA HỌC", link: "/khoa-hoc" },
+            { title: "BLOG", link: "/blog" },
           ].map((item, index) => (
             <NavLink
               key={index}
@@ -65,10 +69,8 @@ const  handleScroll = (event) => {
               {item.title}
             </NavLink>
           ))}
- <div className="dropdown dropdown-hover cursor-pointer">
-            <div className="mr-2 hover:text-[var(--colorGlobal)]">
-              SỰ KIỆN
-            </div>
+          <div className="dropdown dropdown-hover cursor-pointer">
+            <div className="mr-2 hover:text-[var(--colorGlobal)]">SỰ KIỆN</div>
             <ul className="dropdown-content z-[1] menu p-2 shadow bg-white border-spacing-2 rounded-md text-black w-[100px]">
               {[
                 { title: "SỰ KIỆN SALE CUỐI NĂM", link: "#" },
@@ -86,12 +88,9 @@ const  handleScroll = (event) => {
               ))}
             </ul>
           </div>
-          <NavLink
-              
-              className="mr-3 text-sm xl:text-base hover:text-accent"
-            >
-              THÔNG TIN
-            </NavLink>
+          <NavLink className="mr-3 text-sm xl:text-base hover:text-accent">
+            THÔNG TIN
+          </NavLink>
         </div>
         {user ? (
           <div>

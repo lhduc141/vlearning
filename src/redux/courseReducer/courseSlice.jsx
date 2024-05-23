@@ -1,7 +1,12 @@
 import { createSlice } from "@reduxjs/toolkit";
-import { getCourseThunk } from "./courseThunk";
+import { buyCourse, getCourseThunk, getDetailCourse } from "./courseThunk";
+import { courseLocal } from "../../service/courseLocal";
+import { message } from "antd";
 
-const initialState = {};
+const initialState = {
+  listCourse: courseLocal.getCourseList(),
+  detailCourse: [],
+};
 
 const courseSlice = createSlice({
   name: "courseSlice",
@@ -9,20 +14,22 @@ const courseSlice = createSlice({
   reducers: {},
   extraReducers: (builder) => {
     builder
-      .addCase(getCourseThunk.pending, (state, action) => {
-        state.loading = true;
-      })
       .addCase(getCourseThunk.fulfilled, (state, action) => {
         state.loading = false;
+        courseLocal.setCourseList(action.payload);
+        courseLocal.addCourse(action.payload);
+        state.listCourse = action.payload;
         state.courses = action.payload;
       })
-      .addCase(getCourseThunk.rejected, (state, action) => {
+      .addCase(getDetailCourse.fulfilled, (state, data) => {
         state.loading = false;
-        state.error = action.error.message;
+        courseLocal.setCourseDetail();
+        courseLocal.addDetailCourse(data.payload);
+        state.detailCourse = data.payload;
       })
-      .addDefaultCase((state, action) => {
+      .addCase(buyCourse.fulfilled, (state, action) => {
         state.loading = false;
-        state.error = action.error.message;
+        message.success("check buy success");
       });
   },
 });
