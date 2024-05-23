@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 
 const ShowListCourse = ({ dataList, cate }) => {
+  console.log("ShowListCourse ~ dataList:", dataList);
   console.log("ShowListCourse ~ dataList:", dataList[0]);
   const [filteredDataList, setFilteredDataList] = useState([]);
   const selectedIndices = [1, 4, 20, 30, 40, 50, 60, 70];

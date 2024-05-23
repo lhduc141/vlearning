@@ -1,11 +1,13 @@
 import React, { useState } from "react";
 import { NavLink } from "react-router-dom";
 import { SearchOutlined } from "@ant-design/icons";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
+import { logOutAction } from "../../redux/userReducer/userSlice";
 
 const Header = () => {
   const user = useSelector((state) => state.userReducer.infoUser);
   const [isClicked, setIsClicked] = useState(false);
+  const dispatch = useDispatch();
 
   const handleScroll = (event) => {
     event.preventDefault();
@@ -93,16 +95,19 @@ const Header = () => {
           </NavLink>
         </div>
         {user ? (
-          <div>
+          <div className="space-x-8">
             <NavLink
               className="font-semibold text-yellow-400 text-lg no-underline"
-              to="/auth/login"
+              to="/thongTinCaNhan"
             >
               {user?.hoTen}
             </NavLink>
             <NavLink
               className="font-semibold text-yellow-400 text-lg no-underline"
               to="/auth/login"
+              onClick={() => {
+                dispatch(logOutAction());
+              }}
             >
               Log Out
             </NavLink>
