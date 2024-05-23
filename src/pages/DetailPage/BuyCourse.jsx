@@ -13,8 +13,15 @@ const BuyCourse = ({ detailCourse }) => {
       maKhoaHoc: detailCourse.data?.maKhoaHoc,
       taiKhoan: infoUser.taiKhoan,
     };
-    dispatch(buyCourse(dataCourse));
-    nav(`/buy-success/${detailCourse.data?.maKhoaHoc}`);
+    dispatch(buyCourse(dataCourse)).then((result) => {
+      if (result.payload === "fail") {
+        alert("Bạn đã mua khóa học này rồi");
+        nav("/");
+      } else {
+        nav(`/buy-success/${detailCourse.data?.maKhoaHoc}`);
+      }
+    });
+    // nav(`/buy-success/${detailCourse.data?.maKhoaHoc}`);
   };
 
   return (

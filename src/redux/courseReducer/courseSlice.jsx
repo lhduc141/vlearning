@@ -30,6 +30,10 @@ const courseSlice = createSlice({
       .addCase(buyCourse.fulfilled, (state, action) => {
         state.loading = false;
         message.success("check buy success");
+      })
+      .addCase(buyCourse.rejected, (state, action) => {
+        state.loading = false;
+        message.error("Bạn đã mua khóa học này rồi");
       });
   },
 });

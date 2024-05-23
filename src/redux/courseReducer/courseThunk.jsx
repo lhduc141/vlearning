@@ -1,6 +1,7 @@
 import { createAsyncThunk } from "@reduxjs/toolkit";
 import { courseService } from "../../service/courseService";
 import { message } from "antd";
+import { useNavigate } from "react-router-dom";
 
 export const getCourseThunk = createAsyncThunk(
   "course/movieThunk",
@@ -39,7 +40,8 @@ export const buyCourse = createAsyncThunk(
       return data;
     } catch (error) {
       console.log("error:", error);
-      message.error("buy fail");
+      message.error("Bạn đã mua khóa học này rồi");
+      return "fail";
     }
   }
 );
