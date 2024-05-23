@@ -1,6 +1,6 @@
 import { createSlice } from "@reduxjs/toolkit";
 import { userLocal } from "../../service/userLocal";
-import { loginThunk } from "./userThunk";
+import { getDetailInfor, loginThunk } from "./userThunk";
 
 const initialState = {
   infoUser: userLocal.get(),
@@ -27,6 +27,10 @@ const userSlice = createSlice({
         state.infoUser = action.payload;
       })
       .addCase(loginThunk.rejected, (state, action) => {
+        state.infoUser = action.payload;
+      })
+      .addCase(getDetailInfor.fulfilled, (state, action) => {
+        userLocal.set(action.payload);
         state.infoUser = action.payload;
       });
   },

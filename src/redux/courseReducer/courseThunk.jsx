@@ -7,8 +7,6 @@ export const getCourseThunk = createAsyncThunk(
   async (payload, { rejectWithValue }) => {
     try {
       const data = await courseService.getCourses();
-      console.log("data:", data.data);
-      message.success("getlist success");
       return data.data;
     } catch (err) {
       return rejectWithValue(err);
@@ -18,27 +16,22 @@ export const getCourseThunk = createAsyncThunk(
 export const getDetailCourse = createAsyncThunk(
   "course/detailCourse",
   async (payload) => {
-    console.log("payload:", payload);
     try {
       const data = await courseService.getDetailCourse(payload);
-      message.success("get detail success");
       return data;
     } catch (error) {
       console.log("error:", error);
-      message.error("load fail");
     }
   }
 );
 export const buyCourse = createAsyncThunk(
   "course/buyCourse",
   async (payload) => {
-    console.log("payload:", payload);
     try {
       const data = await courseService.buyCourse(payload);
       message.success("buy success");
       return data;
     } catch (error) {
-      console.log("error:", error);
       message.error("Bạn đã mua khóa học này rồi");
       return "fail";
     }
@@ -47,10 +40,8 @@ export const buyCourse = createAsyncThunk(
 export const getCoursePage = createAsyncThunk(
   "course/get-course-page",
   async (payload) => {
-    console.log("payload:", payload);
     try {
       const coursePage = courseService.getCoursePage(payload);
-      console.log("coursePage:", coursePage);
       return coursePage;
     } catch (error) {}
   }

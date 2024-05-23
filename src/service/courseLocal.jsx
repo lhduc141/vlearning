@@ -19,7 +19,6 @@ export const courseLocal = {
     courseList.push(data);
 
     localStorage.setItem("courseList", JSON.stringify(courseList));
-    message.success("Add to courseList");
   },
   deleteCourseList: () => {
     localStorage.removeItem("courseList");
@@ -35,10 +34,6 @@ export const courseLocal = {
     courseDetail.push(data);
 
     localStorage.setItem("courseDetail", JSON.stringify(courseDetail));
-  },
-
-  setCoursePageList: () => {
-    localStorage.setItem("coursePageList", JSON.stringify([]));
   },
 
   setCoursePageList: () => {

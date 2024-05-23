@@ -23,6 +23,7 @@ import DetailPage from "./pages/DetailPage/DetailPage";
 import BuySuccess from "./pages/DetailPage/BuySuccess";
 import KhoaHoc from "./pages/KhoaHoc/KhoaHoc";
 import Blog from "./pages/HomePage/Blog/Blog";
+import UserInfor from "./pages/UserInfor/UserInfor";
 
 function App() {
   return (
@@ -35,6 +36,7 @@ function App() {
           <Route path="/buy-success/:maKhoaHoc" element={<BuySuccess />} />
           <Route path="/khoa-hoc" element={<KhoaHoc />} />
           <Route path="/blog" element={<Blog />} />
+          <Route path="/thongTinCaNhan" element={<UserInfor />} />
         </Route>
 
         <Route path="/auth" element={<AuthTemplate />}>

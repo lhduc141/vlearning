@@ -38,3 +38,15 @@ export const userUpdateThunk = createAsyncThunk(
     }
   }
 );
+export const getDetailInfor = createAsyncThunk(
+  "userReducer/getDetailInfor",
+  async (payload, { rejectWithValue }) => {
+    try {
+      const data = await userService.getDetailInfor();
+      console.log("data:", data);
+      return data.data;
+    } catch (error) {
+      return rejectWithValue(error);
+    }
+  }
+);

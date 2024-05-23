@@ -13,7 +13,6 @@ const ShowCoursePage = ({ page }) => {
   useEffect(() => {
     dispatch(getCoursePage(page));
     setData(coursePageList.items);
-    console.log(data);
   }, [page]);
   return (
     <div>

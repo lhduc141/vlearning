@@ -29,4 +29,9 @@ export const userService = {
 
   deleteUser: (taiKhoan) =>
     http.delete(`/api/QuanLyNguoiDung/XoaNguoiDung?TaiKhoan=${taiKhoan}`),
+
+  getDetailInfor: () => {
+    let url = `/api/QuanLyNguoiDung/ThongTinTaiKhoan`;
+    return http.post(url);
+  },
 };
